@@ -1,0 +1,2785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on darwin)" generated="2024-08-20T16:02:58.199050" rpa="false" schemaversion="5">
+<suite id="s1" name="Ipfs Automation" source="/Users/kaitu27/Desktop/ipfs_automation">
+<suite id="s1-s1" name="UI" source="/Users/kaitu27/Desktop/ipfs_automation/UI">
+<suite id="s1-s1-s1" name="E2E" source="/Users/kaitu27/Desktop/ipfs_automation/UI/E2E">
+<suite id="s1-s1-s1-s1" name="Pool Trade" source="/Users/kaitu27/Desktop/ipfs_automation/UI/E2E/Pool_Trade">
+<suite id="s1-s1-s1-s1-s1" name="ST FE 6734" source="/Users/kaitu27/Desktop/ipfs_automation/UI/E2E/Pool_Trade/ST_FE_6734.robot">
+<kw name="Suite Setup" type="SETUP">
+<kw name="Register Keyword To Run On Failure" owner="Browser">
+<msg time="2024-08-20T16:03:00.894755" level="INFO">'Take Screenshot  EMBED' will be run on failure.</msg>
+<arg>Take Screenshot</arg>
+<arg>EMBED</arg>
+<arg>scope=Suite</arg>
+<tag>Config</tag>
+<doc>Sets the keyword to execute, when a Browser keyword fails.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.893106" elapsed="0.001791"/>
+</kw>
+<kw name="Get Data Test" owner="Keywords">
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2024-08-20T16:03:00.896222" level="INFO">${TEST_TASK} = ST_FE_6734</msg>
+<var>${TEST_TASK}</var>
+<arg>$TEST_TASK != $None</arg>
+<arg>${TEST_TASK}</arg>
+<arg>${SUITE NAME.rsplit('.')[-1].replace(" ","_")}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.895789" elapsed="0.000472"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2024-08-20T16:03:00.896738" level="INFO">${TEST_FEATURE} = Pool_Trade</msg>
+<var>${TEST_FEATURE}</var>
+<arg>$TEST_FEATURE != $None</arg>
+<arg>${TEST_FEATURE}</arg>
+<arg>${SUITE NAME.rsplit('.')[-2].replace(" ","_")}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.896457" elapsed="0.000315"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-20T16:03:00.897213" level="INFO" html="true">Getting file '&lt;a href="file:///Users/kaitu27/Desktop/ipfs_automation/Data/Pool_Trade/ST_FE_6734.json"&gt;/Users/kaitu27/Desktop/ipfs_automation/Data/Pool_Trade/ST_FE_6734.json&lt;/a&gt;'.</msg>
+<msg time="2024-08-20T16:03:00.898486" level="INFO">${data} = {
+  "dev": {
+    "TEST_CASE": {
+      "TC_01": {
+        "description": "[Pool Trade Detail] [vi] Open Modal Buying Share Without Authentication ",
+        "pool_id": "168e0ab8-1a82-4916-b939-119675ce...</msg>
+<var>${data}</var>
+<arg>${EXECDIR}/Data/${TEST_FEATURE}/${TEST_TASK}.json</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.896948" elapsed="0.001584"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:00.900413" level="INFO">${object} = {'dev': {'TEST_CASE': {'TC_01': {'description': '[Pool Trade Detail] [vi] Open Modal Buying Share Without Authentication ', 'pool_id': '168e0ab8-1a82-4916-b939-119675ce2818', 'is_authentication': Fals...</msg>
+<var>${object}</var>
+<arg>json.loads('''${data}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.898742" elapsed="0.001712"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:00.901062" level="INFO">${data_test} = {'TEST_CASE': {'TC_01': {'description': '[Pool Trade Detail] [vi] Open Modal Buying Share Without Authentication ', 'pool_id': '865c423c-fc88-4b18-81dd-90affe6395fb', 'is_authentication': False, 'lang...</msg>
+<var>${data_test}</var>
+<arg>${object}[%{VENV}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.900636" elapsed="0.000462"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:00.907004" level="INFO">${TEST_SUITE} = ST_FE_6734</msg>
+<arg>${TEST_SUITE}</arg>
+<arg>${SUITE NAME.rsplit('.')[-1].replace(" ","_")}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.901283" elapsed="0.005778"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${data_test}[SUITE_SETUP]' != '${None}'</arg>
+<arg>Set Suite Variable</arg>
+<arg>${data_suite}</arg>
+<arg>${data_test}[SUITE_SETUP][${TEST_SUITE}]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.907240" elapsed="0.000212"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:00.911089" level="INFO">${data_test_case} = {'TC_01': {'description': '[Pool Trade Detail] [vi] Open Modal Buying Share Without Authentication ', 'pool_id': '865c423c-fc88-4b18-81dd-90affe6395fb', 'is_authentication': False, 'language': 'vi', '...</msg>
+<arg>${data_test_case}</arg>
+<arg>${data_test}[TEST_CASE]</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.907616" elapsed="0.003524"/>
+</kw>
+<arg>TEST_TASK=ST_FE_6734</arg>
+<arg>TEST_FEATURE=Pool_Trade</arg>
+<status status="PASS" start="2024-08-20T16:03:00.895304" elapsed="0.015917"/>
+</kw>
+<kw name="Setup Browser" owner="Browser">
+<if>
+<branch type="IF" condition="$device == $DEVICE_LIST[&quot;MOBILE&quot;]">
+<kw name="Get Device" owner="Browser">
+<var>&amp;{context}</var>
+<arg>iPhone 11 Pro</arg>
+<tag>BrowserControl</tag>
+<tag>Getter</tag>
+<doc>Get a single device descriptor with name exactly matching name.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:00.912209" elapsed="0.000051"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${device}</arg>
+<arg>MOBILE</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:00.912400" elapsed="0.000032"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:00.911887" elapsed="0.000591"/>
+</branch>
+<branch type="ELSE IF" condition="$device == $DEVICE_LIST[&quot;IPAD&quot;]">
+<kw name="Get Device" owner="Browser">
+<var>&amp;{context}</var>
+<arg>iPad Mini</arg>
+<tag>BrowserControl</tag>
+<tag>Getter</tag>
+<doc>Get a single device descriptor with name exactly matching name.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:00.912746" elapsed="0.000031"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${device}</arg>
+<arg>IPAD</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:00.912909" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:00.912526" elapsed="0.000457"/>
+</branch>
+<branch type="ELSE IF" condition="$device == $DEVICE_LIST[&quot;DESKTOP&quot;]">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-20T16:03:00.913522" level="INFO">&amp;{context} = { viewport={'width': 1920, 'height': 1080} }</msg>
+<var>&amp;{context}</var>
+<arg>viewport={'width': 1920, 'height': 1080}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.913241" elapsed="0.000355"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:00.913955" level="INFO">${device} = DESKTOP</msg>
+<arg>${device}</arg>
+<arg>DESKTOP</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.913795" elapsed="0.000201"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:00.913028" elapsed="0.001016"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fatal Error" owner="BuiltIn">
+<arg>${device} Not Found</arg>
+<doc>Stops the whole test execution.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:00.914198" elapsed="0.000030"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:00.914085" elapsed="0.000186"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:00.911849" elapsed="0.002458"/>
+</if>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${hasRecords} == ${TRUE}</arg>
+<arg>Set To Dictionary</arg>
+<arg>&amp;{context}</arg>
+<arg>recordVideo={'dir':'videos', 'size':{'width':${context}[viewport][width], 'height':${context}[viewport][height]}}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-20T16:03:00.914430" elapsed="0.000174"/>
+</kw>
+<kw name="New Persistent Context" owner="Browser">
+<msg time="2024-08-20T16:03:00.916068" level="INFO">{
+  "userDataDir": "",
+  "browser": "chromium",
+  "headless": true,
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "chromiumSandbox": false,
+  "devtools": false,
+  "forcedColors": "none",
+  "handleSIGHUP": true,
+  "handleSIGINT": true,
+  "handleSIGTERM": true,
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "slowMo": 0.0,
+  "timeout": 30000.0,
+  "viewport": {
+    "height": 1080,
+    "width": 1920
+  },
+  "tracesDir": "/Users/kaitu27/Desktop/ipfs_automation/log/ST_FE_6734/browser/traces/d3085374-fbed-4879-b706-2c858f075d30"
+}</msg>
+<msg time="2024-08-20T16:03:01.746145" level="INFO">Successfully created context. </msg>
+<msg time="2024-08-20T16:03:01.746230" level="INFO">{'userDataDir': '', 'browser': 'chromium', 'headless': True, 'acceptDownloads': True, 'bypassCSP': False, 'chromiumSandbox': False, 'devtools': False, 'forcedColors': 'none', 'handleSIGHUP': True, 'handleSIGINT': True, 'handleSIGTERM': True, 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'slowMo': 0, 'timeout': 30000, 'viewport': {'height': 1080, 'width': 1920}, 'tracesDir': '/Users/kaitu27/Desktop/ipfs_automation/log/ST_FE_6734/browser/traces/d3085374-fbed-4879-b706-2c858f075d30'}</msg>
+<arg>&amp;{context}</arg>
+<doc>Open a new
+[https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context | persistent context].</doc>
+<status status="PASS" start="2024-08-20T16:03:00.914981" elapsed="0.831439"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:00.911555" elapsed="0.835002"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:00.890943" elapsed="0.855687"/>
+</kw>
+<test id="s1-s1-s1-s1-s1-t1" name="TC_01" line="27">
+<kw name="Test Setup" type="SETUP">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.773372" level="INFO">${pool_id} = 865c423c-fc88-4b18-81dd-90affe6395fb</msg>
+<arg>${pool_id}</arg>
+<arg>${data_test_case}[${TEST_NAME}][pool_id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.769567" elapsed="0.003899"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.777833" level="INFO">${is_authentication} = False</msg>
+<arg>${is_authentication}</arg>
+<arg>${data_test_case}[${TEST_NAME}][is_authentication]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.773779" elapsed="0.004107"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.778304" level="INFO">${language} = vi</msg>
+<arg>${language}</arg>
+<arg>${data_test_case}[${TEST_NAME}][language]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.778058" elapsed="0.000310"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.783048" level="INFO">${select_wallet} = None</msg>
+<arg>${select_wallet}</arg>
+<arg>${data_test_case}[${TEST_NAME}][select_wallet]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.778701" elapsed="0.004412"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.786594" level="INFO">${wallet} = None</msg>
+<arg>${wallet}</arg>
+<arg>${data_test_case}[${TEST_NAME}][wallet]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.783349" elapsed="0.003297"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.791181" level="INFO">${is_available_share} = False</msg>
+<arg>${is_available_share}</arg>
+<arg>${data_test_case}[${TEST_NAME}][is_available_share]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.786886" elapsed="0.004368"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.794349" level="INFO">${type} = None</msg>
+<arg>${type}</arg>
+<arg>${data_test_case}[${TEST_NAME}][type]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.791459" elapsed="0.002938"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.798375" level="INFO">${share_amount} = None</msg>
+<arg>${share_amount}</arg>
+<arg>${data_test_case}[${TEST_NAME}][share_amount]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.794547" elapsed="0.003892"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.802871" level="INFO">${button_confirm_is_disable} = False</msg>
+<arg>${button_confirm_is_disable}</arg>
+<arg>${data_test_case}[${TEST_NAME}][button_confirm_is_disable]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.798624" elapsed="0.004302"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.806723" level="INFO">${is_success} = False</msg>
+<arg>${is_success}</arg>
+<arg>${data_test_case}[${TEST_NAME}][is_success]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.803144" elapsed="0.003679"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.811099" level="INFO">${fail_type} = not_authentication</msg>
+<arg>${fail_type}</arg>
+<arg>${data_test_case}[${TEST_NAME}][fail_type]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.807203" elapsed="0.003950"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.817253" level="INFO">${pool_trade_detail_url} = https://fxce-stp-pooltrade.stg.vncdevs.com/vi/pool/865c423c-fc88-4b18-81dd-90affe6395fb</msg>
+<arg>${pool_trade_detail_url}</arg>
+<arg>${POOL_TRADE_URL}/${language}/pool/${pool_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.811313" elapsed="0.006076"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:01.821857" level="INFO">${landing_url} = https://fxce-stp-pooltrade.stg.vncdevs.com/vi?tab=all-pool&amp;q=Sunday&amp;sort_field=start_at&amp;direction=desc&amp;page=1&amp;per=50</msg>
+<arg>${landing_url}</arg>
+<arg>${POOL_TRADE_URL}/${language}?tab=all-pool&amp;q=Sunday&amp;sort_field=start_at&amp;direction=desc&amp;page=1&amp;per=50</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.817616" elapsed="0.004305"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2024-08-20T16:03:03.224039" level="INFO">Successfully opened URL https://fxce-stp-pooltrade.stg.vncdevs.com/vi?tab=all-pool&amp;q=Sunday&amp;sort_field=start_at&amp;direction=desc&amp;page=1&amp;per=50</msg>
+<arg>${landing_url}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2024-08-20T16:03:01.822139" elapsed="1.402161"/>
+</kw>
+<kw name="Wait For Load State" owner="Browser">
+<msg time="2024-08-20T16:03:03.227651" level="INFO">Waiting page load to state to receive networkidle in 10000.0</msg>
+<msg time="2024-08-20T16:03:03.467500" level="INFO">Load state networkidle got in 10000</msg>
+<arg>${NETWORK_IDLE}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="PASS" start="2024-08-20T16:03:03.224884" elapsed="0.242776"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_enough_balance} == ${TRUE} and '${fail_type}' == 'balance_amount_not_enough' and ${suite_authentication} == ${TRUE} or ${is_enough_balance} == ${FALSE} and '${fail_type}' != 'balance_amount_not_enough' and ${suite_authentication} == ${TRUE}">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${suite_authentication}</arg>
+<arg>${FALSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.468585" elapsed="0.000040"/>
+</kw>
+<kw name="Promise To" owner="Browser">
+<var>${reload}</var>
+<arg>Wait For Navigation</arg>
+<arg>${landing_url}</arg>
+<arg>wait_until=${DOM_CONTENT_LOADED}</arg>
+<tag>Wait</tag>
+<doc>Wrap a Browser library keyword and make it a promise.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.468811" elapsed="0.000038"/>
+</kw>
+<kw name="LocalStorage Clear" owner="Browser">
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Remove all saved data from the local storage.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.469039" elapsed="0.000043"/>
+</kw>
+<kw name="Eat All Cookies" owner="Browser">
+<doc>Eat all cookies for all easter.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.469311" elapsed="0.000061"/>
+</kw>
+<kw name="Reload" owner="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Reloads current active page.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.469563" elapsed="0.000057"/>
+</kw>
+<kw name="Wait For" owner="Browser">
+<arg>${reload}</arg>
+<tag>Wait</tag>
+<doc>Waits for promises to finish and returns results from them.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.469794" elapsed="0.000034"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:03.467857" elapsed="0.002061"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:03.467830" elapsed="0.002154"/>
+</if>
+<if>
+<branch type="IF" condition="'${is_authentication}' == '${TRUE}' and '${suite_authentication}' == '${FALSE}'">
+<if>
+<branch type="IF" condition="'${fail_type}' == 'balance_amount_not_enough'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${user}</var>
+<arg>%{USER_STP_05}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.470534" elapsed="0.000033"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<arg>%{PWD_STP_05}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.470723" elapsed="0.000036"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${is_enough_balance}</arg>
+<arg>${FALSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.471044" elapsed="0.000084"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:03.470391" elapsed="0.000819"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${user}</var>
+<arg>%{USER_STP_01}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.471450" elapsed="0.000039"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<arg>%{PWD_STP_01}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.471640" elapsed="0.000036"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${is_enough_balance}</arg>
+<arg>${TRUE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.471859" elapsed="0.000076"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:03.471268" elapsed="0.000723"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:03.470377" elapsed="0.001663"/>
+</if>
+<kw name="Login In Pool Trade">
+<arg>${user}</arg>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:03.472382" elapsed="0.000062"/>
+</kw>
+<kw name="Wait For Load State" owner="Browser">
+<arg>${NETWORK_IDLE}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.472741" elapsed="0.000074"/>
+</kw>
+<kw name="Get Access Token">
+<var>${access_token}</var>
+<status status="NOT RUN" start="2024-08-20T16:03:03.473208" elapsed="0.000045"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${access_token}</arg>
+<arg>${access_token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.473434" elapsed="0.000102"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:03.470052" elapsed="0.003547"/>
+</branch>
+<branch type="ELSE IF" condition="'${is_authentication}' == '${FALSE}' and '${suite_authentication}' == '${TRUE}'">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${suite_authentication}</arg>
+<arg>${FALSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.474047" elapsed="0.000041"/>
+</kw>
+<kw name="Promise To" owner="Browser">
+<var>${reload}</var>
+<arg>Wait For Navigation</arg>
+<arg>${landing_url}</arg>
+<arg>wait_until=${DOM_CONTENT_LOADED}</arg>
+<tag>Wait</tag>
+<doc>Wrap a Browser library keyword and make it a promise.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.474260" elapsed="0.000037"/>
+</kw>
+<kw name="LocalStorage Clear" owner="Browser">
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Remove all saved data from the local storage.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.474452" elapsed="0.000035"/>
+</kw>
+<kw name="Eat All Cookies" owner="Browser">
+<doc>Eat all cookies for all easter.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.474627" elapsed="0.000033"/>
+</kw>
+<kw name="Reload" owner="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Reloads current active page.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.474884" elapsed="0.000087"/>
+</kw>
+<kw name="Wait For" owner="Browser">
+<arg>${reload}</arg>
+<tag>Wait</tag>
+<doc>Waits for promises to finish and returns results from them.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:03.475278" elapsed="0.000069"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:03.473655" elapsed="0.001783"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:03.470036" elapsed="0.005585"/>
+</if>
+<kw name="Change Language In Header" owner="Header">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:03.476731" level="INFO">${modal_langtimezone_status} = hidden</msg>
+<var>${modal_langtimezone_status}</var>
+<arg>${HIDDEN}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-20T16:03:03.476559" elapsed="0.000202"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-08-20T16:03:03.477100" level="INFO">${button_language} = ['.header-right button#fxce__dropdown-langtimezone', '.header &gt; div:nth-child(1) button#fxce__dropdown-langtimezone', '.fxce__header .fxce__header-right #fxce__dropdown-langtimezone']</msg>
+<var>${button_language}</var>
+<arg>.header-right ${button_langtimezone}</arg>
+<arg>.header &gt; div:nth-child(1) ${button_langtimezone}</arg>
+<arg>.fxce__header .fxce__header-right #fxce__dropdown-langtimezone</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-08-20T16:03:03.476901" elapsed="0.000241"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Element States" owner="Browser">
+<msg time="2024-08-20T16:03:03.736497" level="INFO">States are: ['detached']</msg>
+<msg time="2024-08-20T16:03:03.736768" level="INFO">${button_language_states} = ['detached']</msg>
+<var>${button_language_states}</var>
+<arg>${button}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2024-08-20T16:03:03.478025" elapsed="0.258782"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-20T16:03:03.738295" level="INFO">.header-right button#fxce__dropdown-langtimezone not Exists</msg>
+<arg>${button} not Exists</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-20T16:03:03.738071" elapsed="0.000284"/>
+</kw>
+<arg>'${ATTACHED}' in @{button_language_states}</arg>
+<arg>Run Keywords</arg>
+<arg>Wait For Elements State</arg>
+<arg>${button}</arg>
+<arg>${STABLE}</arg>
+<arg>AND</arg>
+<arg>Click</arg>
+<arg>${button}</arg>
+<arg>AND</arg>
+<arg>Set Suite Variable</arg>
+<arg>${modal_langtimezone_status}</arg>
+<arg>${VISIBLE}</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>${button} not Exists</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-20T16:03:03.737114" elapsed="0.001322"/>
+</kw>
+<var name="${button}">.header-right button#fxce__dropdown-langtimezone</var>
+<status status="PASS" start="2024-08-20T16:03:03.477685" elapsed="0.260838"/>
+</iter>
+<iter>
+<kw name="Get Element States" owner="Browser">
+<msg time="2024-08-20T16:03:03.997332" level="INFO">States are: ['detached']</msg>
+<msg time="2024-08-20T16:03:03.997503" level="INFO">${button_language_states} = ['detached']</msg>
+<var>${button_language_states}</var>
+<arg>${button}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2024-08-20T16:03:03.738941" elapsed="0.258600"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-20T16:03:03.999100" level="INFO">.header &gt; div:nth-child(1) button#fxce__dropdown-langtimezone not Exists</msg>
+<arg>${button} not Exists</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-20T16:03:03.998863" elapsed="0.000306"/>
+</kw>
+<arg>'${ATTACHED}' in @{button_language_states}</arg>
+<arg>Run Keywords</arg>
+<arg>Wait For Elements State</arg>
+<arg>${button}</arg>
+<arg>${STABLE}</arg>
+<arg>AND</arg>
+<arg>Click</arg>
+<arg>${button}</arg>
+<arg>AND</arg>
+<arg>Set Suite Variable</arg>
+<arg>${modal_langtimezone_status}</arg>
+<arg>${VISIBLE}</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>${button} not Exists</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-20T16:03:03.998050" elapsed="0.001206"/>
+</kw>
+<var name="${button}">.header &gt; div:nth-child(1) button#fxce__dropdown-langtimezone</var>
+<status status="PASS" start="2024-08-20T16:03:03.738691" elapsed="0.260668"/>
+</iter>
+<iter>
+<kw name="Get Element States" owner="Browser">
+<msg time="2024-08-20T16:03:05.227202" level="INFO">States are: ['attached', 'visible', 'enabled', 'editable', 'defocused']</msg>
+<msg time="2024-08-20T16:03:05.227360" level="INFO">${button_language_states} = ['attached', 'visible', 'enabled', 'editable', 'defocused']</msg>
+<var>${button_language_states}</var>
+<arg>${button}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2024-08-20T16:03:03.999816" elapsed="1.227576"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Run Keywords" owner="BuiltIn">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-08-20T16:03:05.694301" level="INFO">Waited for Element with selector .fxce__header .fxce__header-right #fxce__dropdown-langtimezone at state stable</msg>
+<arg>${button}</arg>
+<arg>${STABLE}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-08-20T16:03:05.228521" elapsed="0.465966"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2024-08-20T16:03:05.698099" level="INFO">Clicks the element '.fxce__header .fxce__header-right #fxce__dropdown-langtimezone'.</msg>
+<arg>${button}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-08-20T16:03:05.696997" elapsed="0.216192"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:05.914832" level="INFO">${modal_langtimezone_status} = visible</msg>
+<arg>${modal_langtimezone_status}</arg>
+<arg>${VISIBLE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-08-20T16:03:05.913653" elapsed="0.001332"/>
+</kw>
+<arg>Wait For Elements State</arg>
+<arg>${button}</arg>
+<arg>${STABLE}</arg>
+<arg>AND</arg>
+<arg>Click</arg>
+<arg>${button}</arg>
+<arg>AND</arg>
+<arg>Set Suite Variable</arg>
+<arg>${modal_langtimezone_status}</arg>
+<arg>${VISIBLE}</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2024-08-20T16:03:05.228206" elapsed="0.686929"/>
+</kw>
+<arg>'${ATTACHED}' in @{button_language_states}</arg>
+<arg>Run Keywords</arg>
+<arg>Wait For Elements State</arg>
+<arg>${button}</arg>
+<arg>${STABLE}</arg>
+<arg>AND</arg>
+<arg>Click</arg>
+<arg>${button}</arg>
+<arg>AND</arg>
+<arg>Set Suite Variable</arg>
+<arg>${modal_langtimezone_status}</arg>
+<arg>${VISIBLE}</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>${button} not Exists</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-20T16:03:05.227726" elapsed="0.687592"/>
+</kw>
+<var name="${button}">.fxce__header .fxce__header-right #fxce__dropdown-langtimezone</var>
+<status status="PASS" start="2024-08-20T16:03:03.999603" elapsed="1.915876"/>
+</iter>
+<var>${button}</var>
+<value>@{button_language}</value>
+<status status="PASS" start="2024-08-20T16:03:03.477274" elapsed="2.438295"/>
+</for>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-08-20T16:03:05.993776" level="INFO">Waited for Element with selector div[aria-labelledby=fxce__dropdown-langtimezone] at state stable</msg>
+<arg>${modal_langtimezone}</arg>
+<arg>${STABLE}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-08-20T16:03:05.915997" elapsed="0.077961"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click" owner="Browser">
+<msg time="2024-08-20T16:03:05.995530" level="INFO">Clicks the element 'div[aria-labelledby=fxce__dropdown-langtimezone] &gt; .fxce__main-dropdown-locale &gt; a.fxce__dropdown-locale__list_menu.dropdown-item:nth-child(1)'.</msg>
+<arg>${langtimezone_language_vi}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-08-20T16:03:05.994943" elapsed="0.073667"/>
+</kw>
+<arg>'${language}' == 'vi'</arg>
+<arg>Click</arg>
+<arg>${langtimezone_language_vi}</arg>
+<arg>ELSE</arg>
+<arg>Click</arg>
+<arg>${langtimezone_language_en}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-20T16:03:05.994533" elapsed="0.074249"/>
+</kw>
+<kw name="Wait For Load State" owner="Browser">
+<msg time="2024-08-20T16:03:06.070421" level="INFO">Waiting page load to state to receive domcontentloaded in 10000.0</msg>
+<msg time="2024-08-20T16:03:06.077738" level="INFO">Load state domcontentloaded got in 10000</msg>
+<arg>${DOM_CONTENT_LOADED}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="PASS" start="2024-08-20T16:03:06.069252" elapsed="0.009933"/>
+</kw>
+<arg>${language}</arg>
+<status status="PASS" start="2024-08-20T16:03:03.475984" elapsed="2.603534"/>
+</kw>
+<if>
+<branch type="IF" condition="'${suite_authentication}' == '${TRUE}'">
+<kw name="Reload" owner="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Reloads current active page.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:06.080632" elapsed="0.000097"/>
+</kw>
+<kw name="Promise To" owner="Browser">
+<var>${promise_assets}</var>
+<arg>Wait For Response</arg>
+<arg>response =&gt; response.url().includes('${STP_ASSETS}') &amp;&amp; response.status() === 200</arg>
+<arg>15s</arg>
+<tag>Wait</tag>
+<doc>Wrap a Browser library keyword and make it a promise.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:06.081079" elapsed="0.000106"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${promise_assets}</arg>
+<arg>${promise_assets}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:06.081803" elapsed="0.000067"/>
+</kw>
+<kw name="Get Assets">
+<var>${assets}</var>
+<status status="NOT RUN" start="2024-08-20T16:03:06.082177" elapsed="0.000039"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${assets}</arg>
+<arg>${assets}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:06.082416" elapsed="0.000074"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:06.080014" elapsed="0.002566"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:06.079949" elapsed="0.002710"/>
+</if>
+<if>
+<branch type="IF" condition="'${pool_id}' != '${NONE}'">
+<kw name="Go To" owner="Browser">
+<msg time="2024-08-20T16:03:06.867480" level="INFO">Successfully opened URL https://fxce-stp-pooltrade.stg.vncdevs.com/vi/pool/865c423c-fc88-4b18-81dd-90affe6395fb</msg>
+<arg>${pool_trade_detail_url}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2024-08-20T16:03:06.082977" elapsed="0.784734"/>
+</kw>
+<kw name="Get Pool Info">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:06.869332" level="INFO">${ENDPOINT} = https://fxce-pooltrade-api.stg.vncdevs.com/api/pool_campaigns/865c423c-fc88-4b18-81dd-90affe6395fb</msg>
+<var>${ENDPOINT}</var>
+<arg>${POOL_CAMPAIGNS}/${id}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-20T16:03:06.868934" elapsed="0.000445"/>
+</kw>
+<kw name="Request API" owner="API">
+<if>
+<branch type="IF" condition="not ${headers}">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-20T16:03:06.873885" level="INFO">&amp;{headers} = { x-api-version=v1 | content-type=application/json | accept=application/json }</msg>
+<var>&amp;{headers}</var>
+<arg>x-api-version=${X_API_VERSION}[V1]</arg>
+<arg>content-type=application/json</arg>
+<arg>accept=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-20T16:03:06.873442" elapsed="0.000488"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:06.870944" elapsed="0.003065"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set To Dictionary" owner="Collections">
+<var>&amp;{headers}</var>
+<arg>${headers}</arg>
+<arg>x-api-version=${X_API_VERSION}[V1]</arg>
+<arg>content-type=application/json</arg>
+<arg>accept=application/json</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:06.874287" elapsed="0.000043"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:06.874066" elapsed="0.000341"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:06.870898" elapsed="0.003554"/>
+</if>
+<if>
+<branch type="IF" condition="'${method}' == '${API_METHOD}[put]'">
+<kw name="PUT" owner="RequestsLibrary">
+<var>${response}</var>
+<arg>headers=&amp;{headers}</arg>
+<arg>url=${endpoint}</arg>
+<arg>params=${params}</arg>
+<arg>data=${data}</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${status_code}</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:06.874844" elapsed="0.000043"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:06.874526" elapsed="0.000430"/>
+</branch>
+<branch type="ELSE IF" condition="'${method}' == '${API_METHOD}[get]'">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-08-20T16:03:07.363807" level="INFO">GET Request : url=https://fxce-pooltrade-api.stg.vncdevs.com/api/pool_campaigns/865c423c-fc88-4b18-81dd-90affe6395fb 
+ path_url=/api/pool_campaigns/865c423c-fc88-4b18-81dd-90affe6395fb 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'x-api-version': 'v1', 'content-type': 'application/json'} 
+ body=None 
+ </msg>
+<msg time="2024-08-20T16:03:07.364129" level="INFO">GET Response : url=https://fxce-pooltrade-api.stg.vncdevs.com/api/pool_campaigns/865c423c-fc88-4b18-81dd-90affe6395fb 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 20 Aug 2024 09:03:07 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1278', 'Connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '0', 'x-content-type-options': 'nosniff', 'x-download-options': 'noopen', 'x-permitted-cross-domain-policies': 'none', 'referrer-policy': 'strict-origin-when-cross-origin', 'vary': 'Accept, Origin', 'etag': 'W/"b5bdf1244935d38bf693c665abdbff31"', 'cache-control': 'max-age=0, private, must-revalidate', 'x-request-id': '41b0465dc9fd651af663f14eb13a75f5', 'x-runtime': '0.405420', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'} 
+ body={"status":"success","success":true,"message":"success","data":{"id":"865c423c-fc88-4b18-81dd-90affe6395fb","name":"[SUNDAY][WHCFZTYUSO] USER TẠO POOL TRADE THÀNH CÔNG TRƯỜNG HỢP 7","entry_amount":"2.0","max_register_user":1000000,"status":"live","master_rate":0.25,"icon":"https://storage.googleapis.com/ipfs-devteam-stp-pooltrade-stg/uploads/pool_campaign/icon/699d2bcfojlreqjprmgynahvapyo/450611166_795144099465716_2140631377393425057_n.jpg","en_content":"\u003cp\u003eLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nibh, consequat sit amet posuere.\u003c/p\u003e","vi_content":"","cn_content":null,"received_trading_account_id":"8e440ad5-90d7-4e3e-a2d6-642ad679dc8b","received_trading_tenant":"fxce-mt5-standard","start_at_timestamp":1724446500,"end_register_at_timestamp":1724187300,"close_at_timestamp":1724532900,"self_close_at_timestamp":0,"created_at_timestamp":1724138334,"updated_at_timestamp":1724138353,"total_registered_user":0,"trading_account":{"id":"8e440ad5-90d7-4e3e-a2d6-642ad679dc8b","mt4_account_id":938283,"latest_balance":"0.0","total_profit":"0.0","total_investment":"0.0","latest_equity":"0.0","latest_growth":"0.0","status":"published","is_closed_all_order":true},"my_user_pool_campaign":null,"username":"sundaytesting01"}} 
+ </msg>
+<msg time="2024-08-20T16:03:07.364436" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>headers=&amp;{headers}</arg>
+<arg>url=${endpoint}</arg>
+<arg>params=${params}</arg>
+<arg>data=${data}</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${status_code}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-08-20T16:03:06.875511" elapsed="0.488989"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:06.875002" elapsed="0.489657"/>
+</branch>
+<branch type="ELSE IF" condition="'${method}' == '${API_METHOD}[post]'">
+<kw name="POST" owner="RequestsLibrary">
+<var>${response}</var>
+<arg>headers=&amp;{headers}</arg>
+<arg>url=${endpoint}</arg>
+<arg>params=${params}</arg>
+<arg>data=${data}</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=${status_code}</arg>
+<doc>Sends a POST request.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.365099" elapsed="0.000075"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.364759" elapsed="0.000538"/>
+</branch>
+<branch type="ELSE IF" condition="${method}' == '${API_METHOD}[delete]'">
+<kw name="DELETE" owner="RequestsLibrary">
+<var>${response}</var>
+<arg>headers=&amp;{headers}</arg>
+<arg>url=${endpoint}</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=${status_code}</arg>
+<doc>Sends a DELETE request.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.365641" elapsed="0.000066"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.365380" elapsed="0.000556"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fatal Error" owner="BuiltIn">
+<arg>${method} not found</arg>
+<doc>Stops the whole test execution.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.366263" elapsed="0.000052"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.366025" elapsed="0.000361"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:06.874507" elapsed="0.491938"/>
+</if>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.374720" level="INFO">${response_url} = https://fxce-pooltrade-api.stg.vncdevs.com/api/pool_campaigns/865c423c-fc88-4b18-81dd-90affe6395fb</msg>
+<arg>${response_url}</arg>
+<arg>${{$response.url}}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.366650" elapsed="0.008145"/>
+</kw>
+<if>
+<branch type="IF" condition="${response.json()}">
+<if>
+<branch type="IF" condition="400 &lt;= ${status_code} &lt; 500">
+<kw name="Check Status Error" owner="API">
+<arg>status_code=${status_code}</arg>
+<arg>body=${response.json()}</arg>
+<arg>expected_message=${message}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:07.377463" elapsed="0.000047"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.377151" elapsed="0.000424"/>
+</branch>
+<branch type="ELSE">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Check Status Success" owner="API">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${body}[status]</arg>
+<arg>success</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.380781" elapsed="0.000392"/>
+</kw>
+<arg>Should Be Equal</arg>
+<arg>${body}[status]</arg>
+<arg>success</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.380562" elapsed="0.000688"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${body}[message]</arg>
+<arg>success</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.381826" elapsed="0.000355"/>
+</kw>
+<arg>Should Be Equal</arg>
+<arg>${body}[message]</arg>
+<arg>success</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.381657" elapsed="0.000669"/>
+</kw>
+<arg>'${body}[message]' != 'success'</arg>
+<arg>Run Keyword And Continue On Failure</arg>
+<arg>Should Be Equal</arg>
+<arg>${body}[message]</arg>
+<arg>${200_MESSAGE}[${language}]</arg>
+<arg>ELSE</arg>
+<arg>Run Keyword And Continue On Failure</arg>
+<arg>Should Be Equal</arg>
+<arg>${body}[message]</arg>
+<arg>success</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.381395" elapsed="0.000997"/>
+</kw>
+<arg>${response.json()}</arg>
+<status status="PASS" start="2024-08-20T16:03:07.378155" elapsed="0.004322"/>
+</kw>
+<arg>'${message}' == '${None}'</arg>
+<arg>Check Status Success</arg>
+<arg>${response.json()}</arg>
+<arg>ELSE</arg>
+<arg>Should Be Equal</arg>
+<arg>${message}</arg>
+<arg>${response.json()}[message]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.377796" elapsed="0.004740"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.377624" elapsed="0.004968"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.377133" elapsed="0.005499"/>
+</if>
+<return>
+<value>${response.json()}</value>
+<status status="PASS" start="2024-08-20T16:03:07.382693" elapsed="0.000161"/>
+</return>
+<status status="PASS" start="2024-08-20T16:03:07.374921" elapsed="0.007989"/>
+</branch>
+<branch type="ELSE">
+<return>
+<value>${response}</value>
+<status status="NOT RUN" start="2024-08-20T16:03:07.383006" elapsed="0.000026"/>
+</return>
+<status status="NOT RUN" start="2024-08-20T16:03:07.382951" elapsed="0.000121"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.374899" elapsed="0.008208"/>
+</if>
+<msg time="2024-08-20T16:03:07.387200" level="INFO">${response_pool_trade} = {'status': 'success', 'success': True, 'message': 'success', 'data': {'id': '865c423c-fc88-4b18-81dd-90affe6395fb', 'name': '[SUNDAY][WHCFZTYUSO] USER TẠO POOL TRADE THÀNH CÔNG TRƯỜNG HỢP 7', 'entry_a...</msg>
+<var>${response_pool_trade}</var>
+<arg>GET</arg>
+<arg>${ENDPOINT}</arg>
+<status status="PASS" start="2024-08-20T16:03:06.870023" elapsed="0.517232"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2024-08-20T16:03:07.387869" level="INFO">${end_time} = 21/08/2024 03:55</msg>
+<var>${end_time}</var>
+<arg>${response_pool_trade}[data][end_register_at_timestamp]</arg>
+<arg>date_format=epoch</arg>
+<arg>result_format=%d/%m/%Y %H:%M</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.387463" elapsed="0.000442"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.388371" level="INFO">${available_share} = 1000000</msg>
+<var>${available_share}</var>
+<arg>${response_pool_trade}[data][max_register_user] - ${response_pool_trade}[data][total_registered_user]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.388083" elapsed="0.000321"/>
+</kw>
+<kw name="Format Commas" owner="Data_Handler">
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.391971" level="INFO">${num_string} = 1000000</msg>
+<var>${num_string}</var>
+<arg>${number}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.391739" elapsed="0.000265"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-08-20T16:03:07.392397" level="INFO">${parts} = ['1000000']</msg>
+<var>${parts}</var>
+<arg>${num_string}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.392186" elapsed="0.000243"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-20T16:03:07.393081" level="INFO">${parts_one} = 1 000 000</msg>
+<var>${parts_one}</var>
+<arg>${parts}[0]</arg>
+<arg>\\B(?=(\\d{3})+(?!\\d))</arg>
+<arg>${separator}</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.392606" elapsed="0.000512"/>
+</kw>
+<kw name="Set List Value" owner="Collections">
+<arg>${parts}</arg>
+<arg>0</arg>
+<arg>${parts_one}</arg>
+<doc>Sets the value of ``list`` specified by ``index`` to the given ``value``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.393286" elapsed="0.000232"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.393988" level="INFO">${new_part} = 1 000 000</msg>
+<var>${new_part}</var>
+<arg>SEPARATOR=.</arg>
+<arg>@{parts}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.393691" elapsed="0.000330"/>
+</kw>
+<if>
+<branch type="IF" condition="'${hasZero}' == '${TRUE}'">
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-20T16:03:07.394670" level="INFO">${new_part} = 1 000 000</msg>
+<var>${new_part}</var>
+<arg>${new_part}</arg>
+<arg>\\.0$</arg>
+<arg>.00</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.394403" elapsed="0.000301"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.394123" elapsed="0.000644"/>
+</branch>
+<branch type="ELSE">
+<kw name="Replace String Using Regexp" owner="String">
+<var>${new_part}</var>
+<arg>${new_part}</arg>
+<arg>\\.0$</arg>
+<arg>${empty}</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.394974" elapsed="0.000112"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.394816" elapsed="0.000334"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.394102" elapsed="0.001092"/>
+</if>
+<return>
+<value>${new_part}</value>
+<status status="PASS" start="2024-08-20T16:03:07.395241" elapsed="0.000054"/>
+</return>
+<msg time="2024-08-20T16:03:07.395478" level="INFO">${available_share_commas} = 1 000 000</msg>
+<var>${available_share_commas}</var>
+<arg>${{int(${available_share})}}</arg>
+<status status="PASS" start="2024-08-20T16:03:07.388733" elapsed="0.006776"/>
+</kw>
+<kw name="Format Big Number" owner="Data_Handler">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.400146" level="INFO">${absValue} = 1000000.0</msg>
+<var>${absValue}</var>
+<arg>abs(float($number))</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.399880" elapsed="0.000298"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.401994" level="INFO">${bigFormat} = </msg>
+<var>${bigFormat}</var>
+<arg>${empty}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.400326" elapsed="0.001696"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.402294" level="INFO">${value} = 1000000</msg>
+<var>${value}</var>
+<arg>${number}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.402152" elapsed="0.000167"/>
+</kw>
+<if>
+<branch type="IF" condition="$absValue &gt;= float(f'{1e10}')">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${bigFormat}</var>
+<arg>B</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.402623" elapsed="0.000031"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${value}</var>
+<arg>float($number)/float(f'{1e9}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.402772" elapsed="0.000049"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.402398" elapsed="0.000487"/>
+</branch>
+<branch type="ELSE IF" condition="$absValue &gt;= float(f'{1e7}')">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${bigFormat}</var>
+<arg>M</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.403282" elapsed="0.000031"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${value}</var>
+<arg>float($number)/float(f'{1e6}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.403428" elapsed="0.000028"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.402928" elapsed="0.000570"/>
+</branch>
+<branch type="ELSE IF" condition="$absValue &gt;= float(f'{1e5}')">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.403858" level="INFO">${bigFormat} = K</msg>
+<var>${bigFormat}</var>
+<arg>K</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.403734" elapsed="0.000150"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.404252" level="INFO">${value} = 1000.0</msg>
+<var>${value}</var>
+<arg>float($number)/1000</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.404017" elapsed="0.000261"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.403533" elapsed="0.000790"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.402380" elapsed="0.001979"/>
+</if>
+<if>
+<branch type="IF" condition="abs(float($value)) &gt; 10000">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${precision}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.404621" elapsed="0.000031"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${value}</var>
+<arg>math.floor($value)</arg>
+<arg>math</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.404768" elapsed="0.000029"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.404411" elapsed="0.000429"/>
+</branch>
+<branch type="ELSE IF" condition="(abs(float($value)) &lt; 1000 and abs(float($value)) % 10 &gt; 5) or (abs(float($value)) &gt;= 1000 and abs(float($value)) &lt; 10000)">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Evaluate" owner="BuiltIn">
+<arg>round(float($value), int($precision))</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.405458" elapsed="0.000208"/>
+</kw>
+<msg time="2024-08-20T16:03:07.405757" level="INFO">${value} = 1000.0</msg>
+<var>${value}</var>
+<arg>${is_round} == ${TRUE}</arg>
+<arg>Evaluate</arg>
+<arg>round(float($value), int($precision))</arg>
+<arg>ELSE</arg>
+<arg>Evaluate</arg>
+<arg>str($value)[:str($value).find('.')+${1}+int($precision)]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.405187" elapsed="0.000595"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.404876" elapsed="0.000958"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.404398" elapsed="0.001474"/>
+</if>
+<kw name="Floor" owner="Data_Handler">
+<if>
+<branch type="IF" condition="$precision != 0">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${data}</var>
+<arg>str($number)[:str($number).find(".")+${precision}+1]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.406632" elapsed="0.000052"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.406451" elapsed="0.000281"/>
+</branch>
+<branch type="ELSE IF" condition="$precision == 0 and str($number).find(&quot;.&quot;) != -1">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.407255" level="INFO">${data} = 1000</msg>
+<var>${data}</var>
+<arg>str($number)[:str($number).find(".")]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.407031" elapsed="0.000251"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.406807" elapsed="0.000522"/>
+</branch>
+<branch type="ELSE">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${data}</var>
+<arg>str($number)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.407478" elapsed="0.000029"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.407367" elapsed="0.000183"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.406436" elapsed="0.001147"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.407911" level="INFO">${data} = 1000.0</msg>
+<var>${data}</var>
+<arg>str(float($data) / 1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.407678" elapsed="0.000261"/>
+</kw>
+<return>
+<value>${data}</value>
+<status status="PASS" start="2024-08-20T16:03:07.408051" elapsed="0.000080"/>
+</return>
+<msg time="2024-08-20T16:03:07.408250" level="INFO">${floor} = 1000.0</msg>
+<var>${floor}</var>
+<arg>${value}</arg>
+<arg>precision=${precision}</arg>
+<status status="PASS" start="2024-08-20T16:03:07.406068" elapsed="0.002206"/>
+</kw>
+<kw name="Format Commas" owner="Data_Handler">
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.409090" level="INFO">${num_string} = 1000.0</msg>
+<var>${num_string}</var>
+<arg>${number}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.408927" elapsed="0.000189"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-08-20T16:03:07.409504" level="INFO">${parts} = ['1000', '0']</msg>
+<var>${parts}</var>
+<arg>${num_string}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.409327" elapsed="0.000202"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-20T16:03:07.409875" level="INFO">${parts_one} = 1 000</msg>
+<var>${parts_one}</var>
+<arg>${parts}[0]</arg>
+<arg>\\B(?=(\\d{3})+(?!\\d))</arg>
+<arg>${separator}</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.409662" elapsed="0.000239"/>
+</kw>
+<kw name="Set List Value" owner="Collections">
+<arg>${parts}</arg>
+<arg>0</arg>
+<arg>${parts_one}</arg>
+<doc>Sets the value of ``list`` specified by ``index`` to the given ``value``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.410078" elapsed="0.000292"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.410736" level="INFO">${new_part} = 1 000.0</msg>
+<var>${new_part}</var>
+<arg>SEPARATOR=.</arg>
+<arg>@{parts}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.410501" elapsed="0.000261"/>
+</kw>
+<if>
+<branch type="IF" condition="'${hasZero}' == '${TRUE}'">
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-20T16:03:07.411212" level="INFO">${new_part} = 1 000.00</msg>
+<var>${new_part}</var>
+<arg>${new_part}</arg>
+<arg>\\.0$</arg>
+<arg>.00</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.411039" elapsed="0.000198"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.410839" elapsed="0.000448"/>
+</branch>
+<branch type="ELSE">
+<kw name="Replace String Using Regexp" owner="String">
+<var>${new_part}</var>
+<arg>${new_part}</arg>
+<arg>\\.0$</arg>
+<arg>${empty}</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.411442" elapsed="0.000029"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.411326" elapsed="0.000190"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.410824" elapsed="0.000725"/>
+</if>
+<return>
+<value>${new_part}</value>
+<status status="PASS" start="2024-08-20T16:03:07.411583" elapsed="0.000038"/>
+</return>
+<msg time="2024-08-20T16:03:07.411741" level="INFO">${commas} = 1 000.00</msg>
+<var>${commas}</var>
+<arg>${floor}</arg>
+<arg>${separator}</arg>
+<status status="PASS" start="2024-08-20T16:03:07.408480" elapsed="0.003286"/>
+</kw>
+<if>
+<branch type="IF" condition="not $hasZero or $precision == 0">
+<if>
+<branch type="IF" condition="abs(float($floor)) % 1 == 0">
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-20T16:03:07.414326" level="INFO">${commas} = 1 000</msg>
+<var>${commas}</var>
+<arg>${commas}</arg>
+<arg>\\.00$|\\.\\d+(0$)</arg>
+<arg>${empty}</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.412244" elapsed="0.002112"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.412035" elapsed="0.002378"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.412023" elapsed="0.002452"/>
+</if>
+<status status="PASS" start="2024-08-20T16:03:07.411858" elapsed="0.002642"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.411845" elapsed="0.002690"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.414837" level="INFO">${data} = 1 000K</msg>
+<var>${data}</var>
+<arg>${commas}${bigFormat}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.414662" elapsed="0.000200"/>
+</kw>
+<return>
+<value>${data}</value>
+<status status="PASS" start="2024-08-20T16:03:07.414919" elapsed="0.000039"/>
+</return>
+<msg time="2024-08-20T16:03:07.415080" level="INFO">${max_register_user_big_number} = 1 000K</msg>
+<var>${max_register_user_big_number}</var>
+<arg>${{int(${response_pool_trade}[data][max_register_user])}}</arg>
+<arg>precision=${0}</arg>
+<status status="PASS" start="2024-08-20T16:03:07.395887" elapsed="0.019219"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.415438" level="INFO">${entry_amount} = 2</msg>
+<var>${entry_amount}</var>
+<arg>int(${response_pool_trade}[data][entry_amount])</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.415233" elapsed="0.000232"/>
+</kw>
+<kw name="Format Big Number" owner="Data_Handler">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.417768" level="INFO">${absValue} = 2.0</msg>
+<var>${absValue}</var>
+<arg>abs(float($number))</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.417566" elapsed="0.000230"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.419478" level="INFO">${bigFormat} = </msg>
+<var>${bigFormat}</var>
+<arg>${empty}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.417924" elapsed="0.001582"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.419842" level="INFO">${value} = 2</msg>
+<var>${value}</var>
+<arg>${number}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.419662" elapsed="0.000230"/>
+</kw>
+<if>
+<branch type="IF" condition="$absValue &gt;= float(f'{1e10}')">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${bigFormat}</var>
+<arg>B</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.420222" elapsed="0.000031"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${value}</var>
+<arg>float($number)/float(f'{1e9}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.420369" elapsed="0.000028"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.419988" elapsed="0.000450"/>
+</branch>
+<branch type="ELSE IF" condition="$absValue &gt;= float(f'{1e7}')">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${bigFormat}</var>
+<arg>M</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.420674" elapsed="0.000029"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${value}</var>
+<arg>float($number)/float(f'{1e6}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.420818" elapsed="0.000028"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.420474" elapsed="0.000435"/>
+</branch>
+<branch type="ELSE IF" condition="$absValue &gt;= float(f'{1e5}')">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${bigFormat}</var>
+<arg>K</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.421205" elapsed="0.000040"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${value}</var>
+<arg>float($number)/1000</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.421362" elapsed="0.000029"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.420970" elapsed="0.000462"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.419973" elapsed="0.001494"/>
+</if>
+<if>
+<branch type="IF" condition="abs(float($value)) &gt; 10000">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${precision}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.421735" elapsed="0.000031"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${value}</var>
+<arg>math.floor($value)</arg>
+<arg>math</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.421950" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.421515" elapsed="0.000511"/>
+</branch>
+<branch type="ELSE IF" condition="(abs(float($value)) &lt; 1000 and abs(float($value)) % 10 &gt; 5) or (abs(float($value)) &gt;= 1000 and abs(float($value)) &lt; 10000)">
+<kw name="Run Keyword If" owner="BuiltIn">
+<var>${value}</var>
+<arg>${is_round} == ${TRUE}</arg>
+<arg>Evaluate</arg>
+<arg>round(float($value), int($precision))</arg>
+<arg>ELSE</arg>
+<arg>Evaluate</arg>
+<arg>str($value)[:str($value).find('.')+${1}+int($precision)]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.422419" elapsed="0.000033"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.422063" elapsed="0.000442"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.421504" elapsed="0.001038"/>
+</if>
+<kw name="Floor" owner="Data_Handler">
+<if>
+<branch type="IF" condition="$precision != 0">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${data}</var>
+<arg>str($number)[:str($number).find(".")+${precision}+1]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.423289" elapsed="0.000033"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.423109" elapsed="0.000261"/>
+</branch>
+<branch type="ELSE IF" condition="$precision == 0 and str($number).find(&quot;.&quot;) != -1">
+<kw name="Evaluate" owner="BuiltIn">
+<var>${data}</var>
+<arg>str($number)[:str($number).find(".")]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.423827" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.423407" elapsed="0.000494"/>
+</branch>
+<branch type="ELSE">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.424236" level="INFO">${data} = 2</msg>
+<var>${data}</var>
+<arg>str($number)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.424045" elapsed="0.000218"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.423938" elapsed="0.000372"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.423094" elapsed="0.001251"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.424645" level="INFO">${data} = 2.0</msg>
+<var>${data}</var>
+<arg>str(float($data) / 1)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.424445" elapsed="0.000227"/>
+</kw>
+<return>
+<value>${data}</value>
+<status status="PASS" start="2024-08-20T16:03:07.424731" elapsed="0.000060"/>
+</return>
+<msg time="2024-08-20T16:03:07.424932" level="INFO">${floor} = 2.0</msg>
+<var>${floor}</var>
+<arg>${value}</arg>
+<arg>precision=${precision}</arg>
+<status status="PASS" start="2024-08-20T16:03:07.422724" elapsed="0.002232"/>
+</kw>
+<kw name="Format Commas" owner="Data_Handler">
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.425794" level="INFO">${num_string} = 2.0</msg>
+<var>${num_string}</var>
+<arg>${number}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.425622" elapsed="0.000219"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2024-08-20T16:03:07.426377" level="INFO">${parts} = ['2', '0']</msg>
+<var>${parts}</var>
+<arg>${num_string}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.426064" elapsed="0.000339"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-20T16:03:07.426794" level="INFO">${parts_one} = 2</msg>
+<var>${parts_one}</var>
+<arg>${parts}[0]</arg>
+<arg>\\B(?=(\\d{3})+(?!\\d))</arg>
+<arg>${separator}</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.426551" elapsed="0.000274"/>
+</kw>
+<kw name="Set List Value" owner="Collections">
+<arg>${parts}</arg>
+<arg>0</arg>
+<arg>${parts_one}</arg>
+<doc>Sets the value of ``list`` specified by ``index`` to the given ``value``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.426995" elapsed="0.000151"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.427470" level="INFO">${new_part} = 2.0</msg>
+<var>${new_part}</var>
+<arg>SEPARATOR=.</arg>
+<arg>@{parts}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.427296" elapsed="0.000199"/>
+</kw>
+<if>
+<branch type="IF" condition="'${hasZero}' == '${TRUE}'">
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-20T16:03:07.427949" level="INFO">${new_part} = 2.00</msg>
+<var>${new_part}</var>
+<arg>${new_part}</arg>
+<arg>\\.0$</arg>
+<arg>.00</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.427784" elapsed="0.000191"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.427572" elapsed="0.000452"/>
+</branch>
+<branch type="ELSE">
+<kw name="Replace String Using Regexp" owner="String">
+<var>${new_part}</var>
+<arg>${new_part}</arg>
+<arg>\\.0$</arg>
+<arg>${empty}</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.428177" elapsed="0.000030"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.428063" elapsed="0.000189"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.427557" elapsed="0.000728"/>
+</if>
+<return>
+<value>${new_part}</value>
+<status status="PASS" start="2024-08-20T16:03:07.428319" elapsed="0.000042"/>
+</return>
+<msg time="2024-08-20T16:03:07.428483" level="INFO">${commas} = 2.00</msg>
+<var>${commas}</var>
+<arg>${floor}</arg>
+<arg>${separator}</arg>
+<status status="PASS" start="2024-08-20T16:03:07.425172" elapsed="0.003336"/>
+</kw>
+<if>
+<branch type="IF" condition="not $hasZero or $precision == 0">
+<if>
+<branch type="IF" condition="abs(float($floor)) % 1 == 0">
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-20T16:03:07.430891" level="INFO">${commas} = 2</msg>
+<var>${commas}</var>
+<arg>${commas}</arg>
+<arg>\\.00$|\\.\\d+(0$)</arg>
+<arg>${empty}</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.429017" elapsed="0.001901"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.428816" elapsed="0.002155"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.428803" elapsed="0.002207"/>
+</if>
+<status status="PASS" start="2024-08-20T16:03:07.428627" elapsed="0.002406"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.428612" elapsed="0.002453"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.431376" level="INFO">${data} = 2</msg>
+<var>${data}</var>
+<arg>${commas}${bigFormat}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.431192" elapsed="0.000209"/>
+</kw>
+<return>
+<value>${data}</value>
+<status status="PASS" start="2024-08-20T16:03:07.431456" elapsed="0.000036"/>
+</return>
+<msg time="2024-08-20T16:03:07.431632" level="INFO">${entry_amount_big_number} = 2</msg>
+<var>${entry_amount_big_number}</var>
+<arg>${entry_amount}</arg>
+<arg>precision=${0}</arg>
+<status status="PASS" start="2024-08-20T16:03:07.415791" elapsed="0.015867"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${response_pool_trade}[data]</arg>
+<arg>end_register_at_timestamp=${end_time}</arg>
+<arg>available_share=${available_share}</arg>
+<arg>available_share_commas=${available_share_commas}</arg>
+<arg>max_register_user_big_number=${max_register_user_big_number}</arg>
+<arg>entry_amount_big_number=${entry_amount_big_number}</arg>
+<arg>entry_amount=${entry_amount}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.431899" elapsed="0.000510"/>
+</kw>
+<return>
+<value>${response_pool_trade}</value>
+<status status="PASS" start="2024-08-20T16:03:07.432601" elapsed="0.000039"/>
+</return>
+<msg time="2024-08-20T16:03:07.432802" level="INFO">${pool_data} = {'status': 'success', 'success': True, 'message': 'success', 'data': {'id': '865c423c-fc88-4b18-81dd-90affe6395fb', 'name': '[SUNDAY][WHCFZTYUSO] USER TẠO POOL TRADE THÀNH CÔNG TRƯỜNG HỢP 7', 'entry_a...</msg>
+<var>${pool_data}</var>
+<arg>${pool_id}</arg>
+<status status="PASS" start="2024-08-20T16:03:06.868050" elapsed="0.564783"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:06.082723" elapsed="1.350157"/>
+</branch>
+<branch type="ELSE">
+<kw name="Go To" owner="Browser">
+<arg>${POOL_TRADE_URL}/${language}?tab=all-pool&amp;q=Sunday&amp;sort_field=start_at&amp;direction=desc&amp;page=1&amp;per=50</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.433061" elapsed="0.000032"/>
+</kw>
+<kw name="Get List Pool Trade Live">
+<var>${list_pool_data}</var>
+<status status="NOT RUN" start="2024-08-20T16:03:07.433380" elapsed="0.000036"/>
+</kw>
+<if>
+<branch type="IF" condition="'${button_confirm_is_disable}' == '${TRUE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pool_item}</var>
+<arg>${list_pool_data}[pool_can_not_buy][0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.433604" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.433487" elapsed="0.000192"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pool_item}</var>
+<arg>${list_pool_data}[pool_can_buy][0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.433957" elapsed="0.000035"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.433737" elapsed="0.000332"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.433472" elapsed="0.000630"/>
+</if>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${pool_index}</arg>
+<arg>${pool_item}[index]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.434206" elapsed="0.000029"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${pool_id}</var>
+<arg>${pool_item}[id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.434349" elapsed="0.000029"/>
+</kw>
+<kw name="Get Pool Info">
+<var>${pool_data}</var>
+<arg>${pool_id}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:07.434523" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.432920" elapsed="0.001675"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:06.082708" elapsed="1.351921"/>
+</if>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-08-20T16:03:07.434976" level="INFO">${pool_data} = {'id': '865c423c-fc88-4b18-81dd-90affe6395fb', 'name': '[SUNDAY][WHCFZTYUSO] USER TẠO POOL TRADE THÀNH CÔNG TRƯỜNG HỢP 7', 'entry_amount': 2, 'max_register_user': 1000000, 'status': 'live', 'master_ra...</msg>
+<arg>${pool_data}</arg>
+<arg>${pool_data}[data]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.434739" elapsed="0.000302"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:01.769221" elapsed="5.665911"/>
+</kw>
+<kw name="Check Modal Buying Share Pool Trade">
+<kw name="Wait For Load State" owner="Browser">
+<msg time="2024-08-20T16:03:07.437479" level="INFO">Waiting page load to state to receive networkidle in 10000.0</msg>
+<msg time="2024-08-20T16:03:07.440517" level="INFO">Load state networkidle got in 10000</msg>
+<arg>${NETWORK_IDLE}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.437076" elapsed="0.003559"/>
+</kw>
+<if>
+<branch type="IF" condition="'${is_authentication}' == '${TRUE}'">
+<if>
+<branch type="IF" condition="'${pool_id}' != '${None}'">
+<if>
+<branch type="IF" condition="'${is_available_share}' == '${TRUE}'">
+<kw name="Open Modal" owner="Modal_Buying_Share">
+<doc>type = 1 -&gt; In Pool Trade Detail
+type = 2 -&gt; In Pool Trade List</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.441290" elapsed="0.000039"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${modal_open}</arg>
+<arg>${TRUE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.441490" elapsed="0.000034"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.441021" elapsed="0.000547"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Modal" owner="Modal_Buying_Share">
+<arg>is_open=${FALSE}</arg>
+<doc>type = 1 -&gt; In Pool Trade Detail
+type = 2 -&gt; In Pool Trade List</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.441858" elapsed="0.000035"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${modal_open}</arg>
+<arg>${FALSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.442037" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.441630" elapsed="0.000481"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.441008" elapsed="0.001139"/>
+</if>
+<status status="NOT RUN" start="2024-08-20T16:03:07.440947" elapsed="0.001223"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Modal" owner="Modal_Buying_Share">
+<arg>type=2</arg>
+<arg>index=${pool_index}</arg>
+<doc>type = 1 -&gt; In Pool Trade Detail
+type = 2 -&gt; In Pool Trade List</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.442410" elapsed="0.000035"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${modal_open}</arg>
+<arg>${TRUE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.442574" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.442205" elapsed="0.000443"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.440933" elapsed="0.001750"/>
+</if>
+<if>
+<branch type="IF" condition="${modal_open} == ${TRUE}">
+<kw name="Check Content">
+<status status="NOT RUN" start="2024-08-20T16:03:07.442904" elapsed="0.000033"/>
+</kw>
+<if>
+<branch type="IF" condition="'${select_wallet}' != '${NONE}'">
+<kw name="Select Wallet" owner="Modal_Buying_Share">
+<arg>${select_wallet}</arg>
+<doc>type = trade_wallet -&gt; Trade Wallet
+type = fund_wallet -&gt; Fund Wallet</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.443196" elapsed="0.000036"/>
+</kw>
+<if>
+<branch type="IF" condition="'${select_wallet}' == 'trade_wallet'">
+<kw name="Get Text" owner="Browser">
+<arg>${Current_Wallet_Name_Element}</arg>
+<arg>==</arg>
+<arg>${TRADE_WALLET}[${language}]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.443438" elapsed="0.000032"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<arg>${Current_Wallet_Icon_Element}</arg>
+<arg>src</arg>
+<arg>*=</arg>
+<arg>/_next/static/media/icon-wallet-fxce.a1b4640f.svg</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.443618" elapsed="0.000033"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Current_Wallet_Amount_Element}</arg>
+<arg>==</arg>
+<arg>${assets}[USD][free_balance_format_big] USDT</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.443785" elapsed="0.000031"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${asset_id}</arg>
+<arg>${assets}[USD][id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.444011" elapsed="0.000033"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.443302" elapsed="0.000788"/>
+</branch>
+<branch type="ELSE">
+<kw name="Get Text" owner="Browser">
+<arg>${Current_Wallet_Name_Element}</arg>
+<arg>==</arg>
+<arg>${FUND_WALLET}[${language}]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.444289" elapsed="0.000031"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<arg>${Current_Wallet_Icon_Element}</arg>
+<arg>src</arg>
+<arg>*=</arg>
+<arg>/_next/static/media/icon-wallet-new.0ee2eb18.svg</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.444460" elapsed="0.000032"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Current_Wallet_Amount_Element}</arg>
+<arg>==</arg>
+<arg>${assets}[USDToken][free_balance_format_big] USDT</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.444631" elapsed="0.000031"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${asset_id}</arg>
+<arg>${assets}[USDToken][id]</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.444800" elapsed="0.000030"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.444129" elapsed="0.000746"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.443288" elapsed="0.001622"/>
+</if>
+<if>
+<branch type="IF" condition="'${share_amount}' != '${None}'">
+<if>
+<branch type="IF" condition="'${type}' == 'input'">
+<kw name="Get Attribute" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>0</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445143" elapsed="0.000031"/>
+</kw>
+<if>
+<branch type="IF" condition="'${pool_data}[available_share]' != '${0}'">
+<if>
+<branch type="IF" condition="'${share_amount}' == 'more_than_max'">
+<kw name="Fill Text" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>${{${pool_data}[available_share]+${1}}}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445429" elapsed="0.000051"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>0</arg>
+<arg>message=Volume Share Amount Should Be 0</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445631" elapsed="0.000031"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Total_Amount_Element}</arg>
+<arg>==</arg>
+<arg>0 USDT</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445806" elapsed="0.000032"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Share_Amount_Element}</arg>
+<arg>==</arg>
+<arg>x0</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445969" elapsed="0.000030"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445310" elapsed="0.000742"/>
+</branch>
+<branch type="ELSE IF" condition="'${share_amount}' == 'less_than_min'">
+<kw name="Type Text" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>-1</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.446234" elapsed="0.000032"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>1</arg>
+<arg>message=Volume Share Amount Should Be 1</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.446528" elapsed="0.000036"/>
+</kw>
+<kw name="Format Commas" owner="Data_Handler">
+<var>${total_amount}</var>
+<arg>${{${1}*${pool_data}[entry_amount]}}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:07.446941" elapsed="0.000038"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Total_Amount_Element}</arg>
+<arg>==</arg>
+<arg>${total_amount} USDT</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.447119" elapsed="0.000033"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Share_Amount_Element}</arg>
+<arg>==</arg>
+<arg>x1</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.447287" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.446092" elapsed="0.001277"/>
+</branch>
+<branch type="ELSE IF" condition="'${share_amount}' == 'max'">
+<kw name="Type Text" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>${pool_data}[available_share]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.447529" elapsed="0.000030"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>${pool_data}[available_share_commas]</arg>
+<arg>message=Volume Share Amount Should Be Max: ${pool_data}[available_share_commas]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.447687" elapsed="0.000030"/>
+</kw>
+<kw name="Format Commas" owner="Data_Handler">
+<var>${total_amount}</var>
+<arg>${{${pool_data}[available_share]*${pool_data}[entry_amount]}}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:07.447960" elapsed="0.000036"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Total_Amount_Element}</arg>
+<arg>==</arg>
+<arg>${total_amount} USDT</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.448160" elapsed="0.000033"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Share_Amount_Element}</arg>
+<arg>==</arg>
+<arg>x${pool_data}[available_share_commas]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.448322" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.447408" elapsed="0.000996"/>
+</branch>
+<branch type="ELSE IF" condition="'${share_amount}' == 'min'">
+<kw name="Type Text" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>1</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.448563" elapsed="0.000031"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>1</arg>
+<arg>message=Volume Share Amount Should Be Min : 1</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.448765" elapsed="0.000033"/>
+</kw>
+<kw name="Format Commas" owner="Data_Handler">
+<var>${total_amount}</var>
+<arg>${{${1}*${pool_data}[entry_amount]}}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:07.449008" elapsed="0.000036"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Total_Amount_Element}</arg>
+<arg>==</arg>
+<arg>${total_amount} USDT</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.449173" elapsed="0.000032"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Share_Amount_Element}</arg>
+<arg>==</arg>
+<arg>x1</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.449362" elapsed="0.000051"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.448443" elapsed="0.001044"/>
+</branch>
+<branch type="ELSE">
+<kw name="Fill Text" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>${share_amount}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.449665" elapsed="0.000030"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${amount}</var>
+<arg>abs(int(${share_amount}))</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.449826" elapsed="0.000031"/>
+</kw>
+<kw name="Format Commas" owner="Data_Handler">
+<var>${amount_commas}</var>
+<arg>${amount}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:07.450060" elapsed="0.000036"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>${amount_commas}</arg>
+<arg>message=Volume Share Amount Should Be ${amount}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.450223" elapsed="0.000032"/>
+</kw>
+<kw name="Format Commas" owner="Data_Handler">
+<var>${total_amount}</var>
+<arg>${{${amount}*${pool_data}[entry_amount]}}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:07.450600" elapsed="0.000096"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Total_Amount_Element}</arg>
+<arg>==</arg>
+<arg>${total_amount} USDT</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.450873" elapsed="0.000033"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Share_Amount_Element}</arg>
+<arg>==</arg>
+<arg>x${amount_commas}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.451042" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.449543" elapsed="0.001582"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445299" elapsed="0.005864"/>
+</if>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445252" elapsed="0.005937"/>
+</branch>
+<branch type="ELSE">
+<kw name="Get Element States" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>*=</arg>
+<arg>${DISABLED}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.451352" elapsed="0.000032"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>0</arg>
+<arg>message=Volume Share Amount Should Be 0</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.451519" elapsed="0.000032"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Total_Amount_Element}</arg>
+<arg>==</arg>
+<arg>0 USDT</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.451686" elapsed="0.000031"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Share_Amount_Element}</arg>
+<arg>==</arg>
+<arg>x0</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.451848" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.451226" elapsed="0.000740"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445240" elapsed="0.006763"/>
+</if>
+<kw name="Take Screenshot" owner="Browser">
+<arg>EMBED</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.452139" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445020" elapsed="0.007193"/>
+</branch>
+<branch type="ELSE IF" condition="'${type}' == 'select'">
+<if>
+<branch type="IF" condition="'${share_amount}' == 'max'">
+<kw name="Press Keys" owner="Browser">
+<arg>${Percent_Process_Info_Element}</arg>
+<arg>End</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.452431" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.452314" elapsed="0.000197"/>
+</branch>
+<branch type="ELSE IF" condition="'${share_amount}' == 'min'">
+<kw name="Press Keys" owner="Browser">
+<arg>${Percent_Process_Info_Element}</arg>
+<arg>Home</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.452660" elapsed="0.000029"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.452546" elapsed="0.000189"/>
+</branch>
+<branch type="ELSE IF" condition="'${share_amount}' == 'low'">
+<kw name="Press Keys" owner="Browser">
+<arg>${Percent_Process_Info_Element}</arg>
+<arg>PageUp</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.452884" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.452770" elapsed="0.000191"/>
+</branch>
+<branch type="ELSE IF" condition="'${share_amount}' == 'high'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${loop}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.453199" elapsed="0.000049"/>
+</kw>
+<while condition="'${loop}' != '${9}'">
+<iter>
+<kw name="Press Keys" owner="Browser">
+<arg>${Percent_Process_Info_Element}</arg>
+<arg>PageUp</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.453679" elapsed="0.000044"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${loop}</var>
+<arg>${${loop}+${1}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.453861" elapsed="0.000033"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.453374" elapsed="0.000606"/>
+</iter>
+<status status="NOT RUN" start="2024-08-20T16:03:07.453370" elapsed="0.000669"/>
+</while>
+<status status="NOT RUN" start="2024-08-20T16:03:07.452996" elapsed="0.001089"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${loop}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.454250" elapsed="0.000032"/>
+</kw>
+<while condition="'${loop}' != '${share_amount}'">
+<iter>
+<kw name="Press Keys" owner="Browser">
+<arg>${Percent_Process_Info_Element}</arg>
+<arg>PageUp</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.454570" elapsed="0.000033"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${loop}</var>
+<arg>${${loop}+${1}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.454736" elapsed="0.000045"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.454343" elapsed="0.000490"/>
+</iter>
+<status status="NOT RUN" start="2024-08-20T16:03:07.454341" elapsed="0.000530"/>
+</while>
+<status status="NOT RUN" start="2024-08-20T16:03:07.454124" elapsed="0.000788"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.452302" elapsed="0.002647"/>
+</if>
+<kw name="Get Attribute Names" owner="Browser">
+<var>${attribute}</var>
+<arg>${Selected_Point_Element}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns all HTML attribute names of an element as a list.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.455073" elapsed="0.000033"/>
+</kw>
+<if>
+<branch type="IF" condition="'style' in $attribute">
+<kw name="Get Attribute" owner="Browser">
+<var>${style_attribute}</var>
+<arg>${Selected_Point_Element}</arg>
+<arg>style</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.455317" elapsed="0.000032"/>
+</kw>
+<kw name="Replace String" owner="String">
+<var>${get_percent}</var>
+<arg>${style_attribute}</arg>
+<arg>left:${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.455486" elapsed="0.000031"/>
+</kw>
+<kw name="Replace String" owner="String">
+<var>${get_percent}</var>
+<arg>${get_percent}</arg>
+<arg>%;</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.455667" elapsed="0.000034"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${percent}</var>
+<arg>${get_percent}/100</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.455848" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.455190" elapsed="0.000735"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${percent}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.456080" elapsed="0.000030"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.455964" elapsed="0.000206"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.455175" elapsed="0.001032"/>
+</if>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${amount}</var>
+<arg>round(${pool_data}[available_share]*${percent})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.456313" elapsed="0.000043"/>
+</kw>
+<kw name="Format Commas" owner="Data_Handler">
+<var>${amount_format_commas}</var>
+<arg>${amount}</arg>
+<arg>hasZero=${FALSE}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:07.456576" elapsed="0.000038"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<arg>${Share_Input_Amount_Element}</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>${amount_format_commas}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.456748" elapsed="0.000033"/>
+</kw>
+<kw name="Format Commas" owner="Data_Handler">
+<var>${total_amount}</var>
+<arg>${{${amount}*${pool_data}[entry_amount]}}</arg>
+<arg>hasZero=${FALSE}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:07.457024" elapsed="0.000066"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Total_Amount_Element}</arg>
+<arg>==</arg>
+<arg>${total_amount} USDT</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.457341" elapsed="0.000059"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Share_Amount_Element}</arg>
+<arg>==</arg>
+<arg>x${amount_format_commas}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.457595" elapsed="0.000035"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser">
+<arg>EMBED</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.457770" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.452251" elapsed="0.005595"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.445009" elapsed="0.012880"/>
+</if>
+<status status="NOT RUN" start="2024-08-20T16:03:07.444961" elapsed="0.012953"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.444948" elapsed="0.013003"/>
+</if>
+<if>
+<branch type="IF" condition="'${button_confirm_is_disable}' == '${FALSE}'">
+<kw name="Get Element States" owner="Browser">
+<arg>${Button_Submit_Element}</arg>
+<arg>not contains</arg>
+<arg>${DISABLED}</arg>
+<arg>message=Button Confirm Is Disable</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.458245" elapsed="0.000041"/>
+</kw>
+<if>
+<branch type="IF" condition="'${fail_type}' == 'share_amount_not_enough'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ENDPOINT}</var>
+<arg>${POOL_CAMPAIGNS}/${pool_id}/register</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.458562" elapsed="0.000031"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>${BODY}</var>
+<arg>quantity=${pool_data}[available_share]</arg>
+<arg>asset_id=${asset_id}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.458813" elapsed="0.000031"/>
+</kw>
+<kw name="Request API" owner="API">
+<arg>method=POST</arg>
+<arg>endpoint=${ENDPOINT}</arg>
+<arg>body=${BODY}</arg>
+<status status="NOT RUN" start="2024-08-20T16:03:07.459170" elapsed="0.000037"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.458435" elapsed="0.000819"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.458421" elapsed="0.000875"/>
+</if>
+<kw name="Click" owner="Browser">
+<arg>${Button_Submit_Element}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.459431" elapsed="0.000037"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${Modal_Notify}</arg>
+<arg>${STABLE}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.459621" elapsed="0.000032"/>
+</kw>
+<if>
+<branch type="IF" condition="'${is_success}' == '${TRUE}'">
+<kw name="Get Text" owner="Browser">
+<arg>${Notify_Title}</arg>
+<arg>==</arg>
+<arg>${MODAL_NOTIFY_TITLE_SUCCESS}[${language}]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.459906" elapsed="0.000036"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Notify_Description}</arg>
+<arg>==</arg>
+<arg>${MODAL_NOTIFY_CONTENT_SUCCESS}[${language}]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.460080" elapsed="0.000035"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Notify_Button}</arg>
+<arg>==</arg>
+<arg>${MODAL_NOTIFY_BUTTON_SUCCESS}[${language}]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.460261" elapsed="0.000035"/>
+</kw>
+<kw name="Get Style" owner="Browser">
+<arg>${Notify_Image}</arg>
+<arg>mask-image</arg>
+<arg>*=</arg>
+<arg>/_next/static/media/notice-success.0e521ffd.svg</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Gets the computed style properties of the element selected by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.460535" elapsed="0.000057"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>${Notify_Button}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.460869" elapsed="0.000044"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${Modal_Element}</arg>
+<arg>${DETACHED}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.461139" elapsed="0.000032"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<arg>${Modal_Notify}</arg>
+<arg>*=</arg>
+<arg>${DETACHED}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.461305" elapsed="0.000032"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<arg>${Modal_Element}</arg>
+<arg>*=</arg>
+<arg>${DETACHED}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.461527" elapsed="0.000055"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.459777" elapsed="0.001866"/>
+</branch>
+<branch type="ELSE IF" condition="'${is_success}' == '${FALSE}'">
+<kw name="Get Text" owner="Browser">
+<arg>${Notify_Title}</arg>
+<arg>==</arg>
+<arg>${MODAL_NOTIFY_TITLE_NOT_ENOUGH}[${language}]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.461834" elapsed="0.000061"/>
+</kw>
+<kw name="Get Style" owner="Browser">
+<arg>${Notify_Image}</arg>
+<arg>mask-image</arg>
+<arg>*=</arg>
+<arg>/_next/static/media/notice-fail.918558a2.svg</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Gets the computed style properties of the element selected by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.462115" elapsed="0.000036"/>
+</kw>
+<if>
+<branch type="IF" condition="'${fail_type}' == 'share_amount_not_enough'">
+<kw name="Get Text" owner="Browser">
+<arg>${Notify_Description}</arg>
+<arg>==</arg>
+<arg>${MODAL_NOTIFY_CONTENT_NOT_ENOUGH_SHARE}[${language}]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.462387" elapsed="0.000035"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Notify_Button}</arg>
+<arg>==</arg>
+<arg>${MODAL_NOTIFY_BUTTON_NOT_ENOUGH_SHARE}[${language}]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.462617" elapsed="0.000059"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.462248" elapsed="0.000546"/>
+</branch>
+<branch type="ELSE">
+<kw name="Get Text" owner="Browser">
+<arg>${Notify_Description}</arg>
+<arg>==</arg>
+<arg>${MODAL_NOTIFY_CONTENT_NOT_ENOUGH_BALANCE}[${language}]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.463076" elapsed="0.000037"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<arg>${Notify_Button}</arg>
+<arg>==</arg>
+<arg>${MODAL_NOTIFY_BUTTON_NOT_ENOUGH_BALANCE}[${language}]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.463274" elapsed="0.000030"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.462871" elapsed="0.000485"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.462231" elapsed="0.001162"/>
+</if>
+<kw name="Click" owner="Browser">
+<arg>${Notify_Button}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.463502" elapsed="0.000032"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${Modal_Notify}</arg>
+<arg>${DETACHED}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.463664" elapsed="0.000031"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<arg>${Modal_Notify}</arg>
+<arg>*=</arg>
+<arg>${DETACHED}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.463940" elapsed="0.000067"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<arg>${Modal_Element}</arg>
+<arg>*=</arg>
+<arg>${ATTACHED}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.464140" elapsed="0.000030"/>
+</kw>
+<kw name="Wait For Load State" owner="Browser">
+<arg>${NETWORK_IDLE}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.464428" elapsed="0.000030"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser">
+<arg>EMBED</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.464593" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.461690" elapsed="0.002979"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.459762" elapsed="0.004948"/>
+</if>
+<status status="NOT RUN" start="2024-08-20T16:03:07.458002" elapsed="0.006734"/>
+</branch>
+<branch type="ELSE IF" condition="'${button_confirm_is_disable}' == '${TRUE}'">
+<kw name="Get Element States" owner="Browser">
+<arg>${Button_Submit_Element}</arg>
+<arg>contains</arg>
+<arg>${DISABLED}</arg>
+<arg>message=Button Confirm Is Not Disable</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.464939" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.464772" elapsed="0.000281"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.457989" elapsed="0.007144"/>
+</if>
+<status status="NOT RUN" start="2024-08-20T16:03:07.443018" elapsed="0.022144"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.443003" elapsed="0.022198"/>
+</if>
+<status status="NOT RUN" start="2024-08-20T16:03:07.442731" elapsed="0.022509"/>
+</branch>
+<status status="NOT RUN" start="2024-08-20T16:03:07.442718" elapsed="0.022555"/>
+</if>
+<status status="NOT RUN" start="2024-08-20T16:03:07.440751" elapsed="0.024543"/>
+</branch>
+<branch type="ELSE">
+<if>
+<branch type="IF" condition="'${pool_id}' != '${None}'">
+<kw name="Open Modal" owner="Modal_Buying_Share">
+<if>
+<branch type="IF" condition="'${type}' == '${1}'">
+<kw name="Click" owner="Browser">
+<msg time="2024-08-20T16:03:07.470441" level="INFO">Clicks the element 'body &gt; div.main-page &gt; div.content-page &gt; div &gt; div:nth-child(1) &gt; div &gt; div &gt; div.KBmVf4 &gt; div._173z2u'.</msg>
+<arg>body &gt; div.main-page &gt; div.content-page &gt; div &gt; div:nth-child(1) &gt; div &gt; div &gt; div.KBmVf4 &gt; div._173z2u</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.469736" elapsed="0.168593"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.466715" elapsed="0.171878"/>
+</branch>
+<branch type="ELSE">
+<kw name="Scroll To Element" owner="Browser">
+<arg>div.FynI_K:nth-child(${index})</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>This method waits for actionability checks, then tries to scroll element into view,
+unless it is completely visible.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.639054" elapsed="0.000076"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>div.FynI_K:nth-child(${index}) &gt; div.lOAB2w &gt; button.XvXybR</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.639475" elapsed="0.000042"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.638701" elapsed="0.000917"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.466699" elapsed="0.172967"/>
+</if>
+<if>
+<branch type="IF" condition="'${is_open}' == '${TRUE}'">
+<kw name="Get Element States" owner="Browser">
+<arg>${Modal_Element}</arg>
+<arg>*=</arg>
+<arg>${ATTACHED}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.640520" elapsed="0.000061"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${Modal_Element}</arg>
+<arg>${STABLE}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.640856" elapsed="0.000042"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.639879" elapsed="0.001080"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.639841" elapsed="0.001165"/>
+</if>
+<arg>is_open=${FALSE}</arg>
+<doc>type = 1 -&gt; In Pool Trade Detail
+type = 2 -&gt; In Pool Trade List</doc>
+<status status="PASS" start="2024-08-20T16:03:07.466023" elapsed="0.175053"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.465398" elapsed="0.175734"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Modal" owner="Modal_Buying_Share">
+<arg>type=2</arg>
+<arg>is_open=${FALSE}</arg>
+<arg>index=${pool_index}</arg>
+<doc>type = 1 -&gt; In Pool Trade Detail
+type = 2 -&gt; In Pool Trade List</doc>
+<status status="NOT RUN" start="2024-08-20T16:03:07.641489" elapsed="0.000043"/>
+</kw>
+<status status="NOT RUN" start="2024-08-20T16:03:07.641173" elapsed="0.000414"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.465384" elapsed="0.176266"/>
+</if>
+<kw name="Wait For Load State" owner="Browser">
+<msg time="2024-08-20T16:03:07.642845" level="INFO">Waiting page load to state to receive networkidle in 10000.0</msg>
+<msg time="2024-08-20T16:03:09.705082" level="INFO">Load state networkidle got in 10000</msg>
+<arg>${NETWORK_IDLE}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="PASS" start="2024-08-20T16:03:07.641801" elapsed="2.063521"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<arg>*=</arg>
+<arg>${SSO_URL}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2024-08-20T16:03:09.705741" elapsed="0.004298"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:07.465326" elapsed="2.244848"/>
+</branch>
+<status status="PASS" start="2024-08-20T16:03:07.440732" elapsed="2.269516"/>
+</if>
+<arg>[Pool Trade Detail] [vi] Open Modal Buying Share Without Authentication</arg>
+<status status="PASS" start="2024-08-20T16:03:07.436663" elapsed="2.273688"/>
+</kw>
+<kw name="Test Teardown" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<arg>EMBED</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2024-08-20T16:03:09.711622" elapsed="0.000148"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:09.710844" elapsed="0.001031"/>
+</kw>
+<status status="PASS" start="2024-08-20T16:03:01.746747" elapsed="7.965248"/>
+</test>
+<status status="PASS" start="2024-08-20T16:02:58.247827" elapsed="11.473876"/>
+</suite>
+<status status="PASS" start="2024-08-20T16:02:58.246787" elapsed="11.659251"/>
+</suite>
+<status status="PASS" start="2024-08-20T16:02:58.245887" elapsed="11.660809"/>
+</suite>
+<status status="PASS" start="2024-08-20T16:02:58.244847" elapsed="11.662485"/>
+</suite>
+<status status="PASS" start="2024-08-20T16:02:58.200701" elapsed="11.707344"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Ipfs Automation">Ipfs Automation</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="UI">Ipfs Automation.UI</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="E2E">Ipfs Automation.UI.E2E</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="Pool Trade">Ipfs Automation.UI.E2E.Pool Trade</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1-s1" name="ST FE 6734">Ipfs Automation.UI.E2E.Pool Trade.ST FE 6734</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
